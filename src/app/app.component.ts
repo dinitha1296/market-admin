@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'market-admin';
-  counter: number = 1;
-
-  onIncrement() {
-    this.counter += 1;
-  }
+  title = 'Market Admin';
 }
