@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'market-admin';
+  counter: number = 1;
+
+  onIncrement() {
+    this.counter += 1;
+  }
 }
