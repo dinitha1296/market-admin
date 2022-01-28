@@ -1,42 +1,38 @@
 <nav 
-    class="d-flex flex-column flex-shrink-0 bg-light delay" 
+    class="d-flex flex-column flex-shrink-0 bg-light delay overflow-hidden" 
     [ngStyle]="{'width': isMenuSelected ? '280px': '4.5rem', 'height': '100%'}">
     <hr>
     <ul 
         class="nav nav-pills flex-column mb-auto" 
-        [class]="{'nav-flush': !isMenuSelected, 'text-center': !isMenuSelected}">
-        <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
-                <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg> -->
+        [class]="{'nav-flush': !isMenuSelected}">
+        <li>
+            <a href="#" class="nav-link active side-nav-item" aria-current="page">
                 <i class="bi bi-house icon m-2"></i>
-                <span class="m-3" *ngIf='isMenuSelected' >Home</span>
+                <span class="m-4">Home</span>
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
-                <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> -->
+            <a href="#" class="nav-link link-dark side-nav-item">
                 <i class="bi bi-speedometer icon m-2"></i>
-                <span class="m-3" *ngIf='isMenuSelected' >Dashboard</span>
+                <span class="m-4">Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
-                <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> -->
+            <a href="#" class="nav-link link-dark side-nav-item">
                 <i class="bi bi-table icon m-2"></i>
-                <span class="m-3" *ngIf='isMenuSelected' >Orders</span>
+                <span class="m-4">Orders</span>
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
-                <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg> -->
+            <a href="#" class="nav-link link-dark side-nav-item">
                 <i class="bi bi-grid icon m-2"></i>
-                <span class="m-3" *ngIf='isMenuSelected' >Products</span>
+                <span class="m-4">Products</span>
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="#" class="nav-link link-dark side-nav-item">
                 <i class="bi bi-person-circle icon m-2"></i>
-                <span class="m-3" *ngIf='isMenuSelected' >Customers</span>
+                <span class="m-4">Customers</span>
             </a>
         </li>
     </ul>
