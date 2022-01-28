@@ -1,0 +1,43 @@
+<nav 
+    class="d-flex flex-column flex-shrink-0 bg-light delay" 
+    [ngStyle]="{'width': isMenuSelected ? '280px': '4.5rem', 'height': '100%'}">
+    <hr>
+    <ul 
+        class="nav nav-pills flex-column mb-auto" 
+        [class]="{'nav-flush': !isMenuSelected, 'text-center': !isMenuSelected}">
+        <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">
+                <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg> -->
+                <i class="bi bi-house icon m-2"></i>
+                <span class="m-3" *ngIf='isMenuSelected' >Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link link-dark">
+                <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> -->
+                <i class="bi bi-speedometer icon m-2"></i>
+                <span class="m-3" *ngIf='isMenuSelected' >Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link link-dark">
+                <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> -->
+                <i class="bi bi-table icon m-2"></i>
+                <span class="m-3" *ngIf='isMenuSelected' >Orders</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link link-dark">
+                <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg> -->
+                <i class="bi bi-grid icon m-2"></i>
+                <span class="m-3" *ngIf='isMenuSelected' >Products</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link link-dark">
+                <i class="bi bi-person-circle icon m-2"></i>
+                <span class="m-3" *ngIf='isMenuSelected' >Customers</span>
+            </a>
+        </li>
+    </ul>
+</nav>
