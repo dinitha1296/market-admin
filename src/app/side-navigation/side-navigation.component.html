@@ -6,33 +6,15 @@
         class="nav nav-pills flex-column mb-auto" 
         [class]="{'nav-flush': !isMenuSelected}">
         <li>
-            <a href="#" class="nav-link active side-nav-item" aria-current="page">
-                <i class="bi bi-house icon m-2"></i>
-                <span class="m-4">Home</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link link-dark side-nav-item">
+            <a routerLink="/dashboard" class="nav-link active side-nav-item" aria-current="page">
                 <i class="bi bi-speedometer icon m-2"></i>
                 <span class="m-4">Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark side-nav-item">
-                <i class="bi bi-table icon m-2"></i>
-                <span class="m-4">Orders</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link link-dark side-nav-item">
-                <i class="bi bi-grid icon m-2"></i>
+            <a routerLink="/products" class="nav-link link-dark side-nav-item">
+                <i class="bi bi-boxes icon m-2"></i>
                 <span class="m-4">Products</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link link-dark side-nav-item">
-                <i class="bi bi-person-circle icon m-2"></i>
-                <span class="m-4">Customers</span>
             </a>
         </li>
     </ul>
