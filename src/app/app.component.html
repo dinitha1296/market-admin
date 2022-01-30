@@ -1,5 +1,6 @@
-<router-outlet>
-  <app-top-navigation [(isMenuSelected)]="isMenuSelected"></app-top-navigation>
-  <hr class="m-0">
+<app-top-navigation [(isMenuSelected)]="isMenuSelected"></app-top-navigation>
+<hr class="m-0">
+<div [style]="{'display': 'flex', 'height': '100%'}">
   <app-side-navigation [isMenuSelected]="isMenuSelected"></app-side-navigation>
-</router-outlet>
+  <router-outlet [style]="{'display': 'none'}"></router-outlet>
+</div>
