@@ -6,13 +6,19 @@
         class="nav nav-pills flex-column mb-auto" 
         [class]="{'nav-flush': !isMenuSelected}">
         <li>
-            <a routerLink="/dashboard" class="nav-link active side-nav-item" aria-current="page">
+            <a 
+                routerLink="/dashboard" 
+                class="nav-link link-dark side-nav-item" 
+                [class]="{'active': route==='dashboard'}">
                 <i class="bi bi-speedometer icon m-2"></i>
                 <span class="m-4">Dashboard</span>
             </a>
         </li>
         <li>
-            <a routerLink="/products" class="nav-link link-dark side-nav-item">
+            <a
+                routerLink="/products" 
+                class="nav-link link-dark side-nav-item"
+                [class]="{'active': route==='products'}">
                 <i class="bi bi-boxes icon m-2"></i>
                 <span class="m-4">Products</span>
             </a>
