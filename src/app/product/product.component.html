@@ -1,1 +1,14 @@
 <p>product works!</p>
+<input id="product_id" type="text" [(ngModel)]="productId">
+<p>{{productId}}</p>
+<button (click)="onClick()" class="btn">Send Product Request</button>
+<div *ngIf="product">
+    <div class="card shadow-sm">
+        <img class="bd-placeholder-img card-img-top" [src]="product.productImageURL" [alt]="product.productName">
+        <div class="card-body">
+            <p>Rs. {{product.productUnitPrice}}</p>
+            <p class="card-text">{{product.productName}}</p>
+        </div>
+    </div>
+</div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
