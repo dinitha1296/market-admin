@@ -9,23 +9,27 @@ import { ProductService } from '../core/services/product.service';
 })
 export class ProductComponent implements OnInit {
 
-  productId: string = "";
+  searchQuery: string = "chocolate milk";
 
-  product?: Product = undefined;
+  products?: Product[] = undefined;
 
   constructor(
     private productService: ProductService
   ) { }
 
   ngOnInit(): void {
+    this.productService.getProductsByQuery(this.searchQuery)
+      .subscribe(prods => {
+        this.products = prods;
+        console.log(prods)
+      });
   }
 
   onClick(): void {
-    if (!this.productId || !this.productId.match(/^\d*$/)) return;
-    this.productService.getProductById(Number.parseInt(this.productId))
-      .subscribe(prod => {
-        this.product = prod;
-        console.log(prod)
+    this.productService.getProductsByQuery(this.searchQuery)
+      .subscribe(prods => {
+        this.products = prods;
+        console.log(prods)
       });
     // this.productService.getProducts().subscribe(p => console.log(p));
   }

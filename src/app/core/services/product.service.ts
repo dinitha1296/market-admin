@@ -20,6 +20,9 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
+  /** 
+   * GET all products 
+   */
   getProducts(): Observable<Product[]> { 
     return this.http.get<Product[]>(
         this.baseURL,
@@ -32,15 +35,36 @@ export class ProductService {
       );
   }
 
+  /**
+   * GET product by product ID
+   * 
+   * @param id - id of the product
+   */
   getProductById(id: number): Observable<Product> { 
     return this.http.get<Product>(
         `${this.baseURL}/${encodeURIComponent(id)}`
       ).pipe(
-        catchError(this.handleError<Product>('getProducts', undefined))
+        catchError(this.handleError<Product>('getProduct', undefined))
       );
   }
 
-  handleError<T>(operation: String, result?: T) {
+  /** 
+   * GET products by search query
+   * 
+   * @param query - search query
+   */
+  getProductsByQuery(query: string): Observable<Product[]> {
+    return this.http.get<Product[]>(
+      this.baseURL,
+      {
+        params: {query}
+      }
+    ).pipe(
+      catchError(this.handleError<Product[]>('getProductsByQuery', undefined))
+    );
+  }
+
+  private handleError<T>(operation: String, result?: T) {
     return (error: any): Observable<T> => {
       console.log(error);
       console.log(`Error Status: ${error.status}`);

@@ -1,14 +1,17 @@
-<p>product works!</p>
-<input id="product_id" type="text" [(ngModel)]="productId">
-<p>{{productId}}</p>
-<button (click)="onClick()" class="btn">Send Product Request</button>
-<div *ngIf="product">
-    <div class="card shadow-sm">
-        <img class="bd-placeholder-img card-img-top" [src]="product.productImageURL" [alt]="product.productName">
-        <div class="card-body">
-            <p>Rs. {{product.productUnitPrice}}</p>
-            <p class="card-text">{{product.productName}}</p>
+<div class="d-flex m-3">
+    <input id="searchBar" type="text" class="form-control" [(ngModel)]="searchQuery">
+    <button (click)="onClick()" class="btn"><i class="bi bi-search"></i></button>
+</div>
+<div class="overflow-auto m-3 d-flex justify-content-center" [ngStyle]="{'height': 'calc(100% - 8.5em - 0.75rem - 2px)'}">
+    <div class="container row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5">
+        <div *ngFor="let product of products" class="col" [ngStyle]="{'padding-botttom': '15px'}">
+            <div class="card shadow-sm h-100">
+                <img class="img-fluid w-100" [src]="product.productImageURL" [alt]="product.productName">
+                <div class="card-body">
+                    <p class="font-weight-bold">Rs. {{product.productUnitPrice}}</p>
+                    <p class="card-text sm-90">{{product.productName}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
