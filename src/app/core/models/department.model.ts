@@ -1,6 +1,6 @@
 import { SubDepartment } from "./sub-department.model";
 
-export interface Depratment {
+export interface Department {
 
     departmentId: String,
     departmentName: String,
