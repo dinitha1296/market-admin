@@ -9,7 +9,7 @@
             <a 
                 routerLink="/dashboard" 
                 class="nav-link link-dark side-nav-item" 
-                [class]="{'active': route==='dashboard'}">
+                [class]="{'active': routeMatches('dashboard', currentRoute)}">
                 <i class="bi bi-speedometer icon m-2"></i>
                 <span class="m-4">Dashboard</span>
             </a>
@@ -18,7 +18,7 @@
             <a
                 routerLink="/products" 
                 class="nav-link link-dark side-nav-item"
-                [class]="{'active': route==='products'}">
+                [class]="{'active': routeMatches('products', currentRoute)}">
                 <i class="bi bi-boxes icon m-2"></i>
                 <span class="m-4">Products</span>
             </a>

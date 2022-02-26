@@ -13,15 +13,18 @@ export class SideNavigationComponent implements OnInit {
   ) { }
 
   @Input() isMenuSelected!: boolean;
-  route!: String;
+  currentRoute!: string;
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        const url: String[] = this.router.url.split("/");
-        this.route = (url && url.length > 0) ? url[1] : "";
+        this.currentRoute = this.router.url;
       }
     })
   }
 
+  routeMatches(subPath: string, route: string): boolean {
+    let pattern: RegExp = new RegExp(`^/${subPath}([^a-zA-Z-].*)?$`);
+    return pattern.test(route);
+  }
 }

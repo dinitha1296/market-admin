@@ -1,27 +1,33 @@
 <nav class="navbar navbar-default bg-light">
     <div>
         <button 
+            id="menu-button"
             (click)="onMenuClick()" 
             [class]="{'btn-focus': isMenuSelected}"
             class="btn btn-transparent btn-round">
             <i class="bi bi-list icon"></i>
         </button>
     </div>
-    <div>
-        <a><h2>Market Admin</h2></a>
+    <div id="app-title">
+        <a href="/" class="text-reset text-decoration-none">
+            <h2>Market Admin</h2>
+        </a>
     </div>
     <div>
         <button 
+            id="notification-button"
             (click)="onNotificationClick()"
             class="btn btn-transparent btn-round">
             <i class="bi bi-bell-fill bi-lg icon"></i>
         </button>
         <button 
+            id="logout-button"
             (click)="onLogoutClick()"
             class="btn btn-transparent btn-round">
             <i class="bi bi-box-arrow-right icon"></i>
         </button>
         <button 
+            id="settings-button"
             (click)="onSettingsClick()"
             class="btn btn-transparent btn-round">
             <i class="bi bi-gear icon"></i>

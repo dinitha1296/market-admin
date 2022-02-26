@@ -9,7 +9,7 @@ import { ProductService } from '../core/services/product.service';
 })
 export class ProductComponent implements OnInit {
 
-  searchQuery: string = "chocolate milk";
+  searchQuery: string = "";
 
   products?: Product[] = undefined;
 
@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
       });
   }
 
-  onClick(): void {
+  onSearchBtnClick(): void {
     this.productService.getProductsByQuery(this.searchQuery)
       .subscribe(prods => {
         this.products = prods;

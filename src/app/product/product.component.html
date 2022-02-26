@@ -1,6 +1,6 @@
 <div class="d-flex m-3">
-    <input id="searchBar" type="text" class="form-control" [(ngModel)]="searchQuery">
-    <button (click)="onClick()" class="btn"><i class="bi bi-search"></i></button>
+    <input id="search-bar" type="text" class="form-control" [(ngModel)]="searchQuery">
+    <button id="search-btn" (click)="onSearchBtnClick()" class="btn"><i class="bi bi-search"></i></button>
 </div>
 <div class="overflow-auto m-3 d-flex justify-content-center" [ngStyle]="{'height': 'calc(100% - 8.5em - 0.75rem - 2px)'}">
     <div class="container row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5">

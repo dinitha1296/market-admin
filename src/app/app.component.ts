@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title:string = 'Market Admin';
-  isMenuSelected:boolean = false;
+  title: string = 'Market Admin';
+  isMenuSelected: boolean = false;
 }
