@@ -10,6 +10,7 @@ import { TopNavigationComponent } from './top-navigation/top-navigation.componen
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductComponent } from './product/product.component';
+import { PageNavigatorComponent } from './page-navigator/page-navigator.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductComponent } from './product/product.component';
     TopNavigationComponent,
     SideNavigationComponent,
     DashboardComponent,
-    ProductComponent
+    ProductComponent,
+    PageNavigatorComponent
   ],
   imports: [
     BrowserModule,

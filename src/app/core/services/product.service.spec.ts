@@ -59,21 +59,34 @@ describe('ProductService', () => {
     expect(productService).toBeTruthy();
   });
 
-  it('#getProducts should return all products (HttpClient called once)', (done: DoneFn) => {
-    const expectedProducts: Product[] = testProducts;
+  it('#getProducts should return product by query (HttpClient called once)', (done: DoneFn) => {
+    const expectedProducts: Product[] = [testProducts[0]];
 
-    productService.getProducts().subscribe({
-      next: products => {
-        expect(products).toEqual(expectedProducts);
+    productService.getProducts("a").subscribe({
+      next: product => {
+        expect(product.content).toEqual(expectedProducts);
         done();
       },
       error: done.fail
     });
 
-    const req = httpTestingController.expectOne('api/products');
+    const req: TestRequest = httpTestingController.expectOne('api/products?query=a');
     expect(req.request.method).toEqual('GET');
     req.flush(expectedProducts);
 
+  });
+
+  it('#getProducts should return undefined on error', (done: DoneFn) => {
+    productService.getProducts("a").subscribe({
+      next: product => {
+        expect(product).toBeUndefined();
+        done();
+      },
+      error: done.fail
+    });
+
+    const errorEvent: ErrorEvent = new ErrorEvent('404');
+    httpTestingController.expectOne('api/products?query=a').error(errorEvent);
   });
 
   it('#getProductById should return product by id (HttpClient called once)', (done: DoneFn) => {
@@ -93,33 +106,4 @@ describe('ProductService', () => {
 
   });
 
-  it('#getProductsByQuery should return product by query (HttpClient called once)', (done: DoneFn) => {
-    const expectedProducts: Product[] = [testProducts[0]];
-
-    productService.getProductsByQuery("a").subscribe({
-      next: product => {
-        expect(product).toEqual(expectedProducts);
-        done();
-      },
-      error: done.fail
-    });
-
-    const req: TestRequest = httpTestingController.expectOne('api/products?query=a');
-    expect(req.request.method).toEqual('GET');
-    req.flush(expectedProducts);
-
-  });
-
-  it('#getProductsByQuery should return undefined on error', (done: DoneFn) => {
-    productService.getProductsByQuery("a").subscribe({
-      next: product => {
-        expect(product).toBeUndefined();
-        done();
-      },
-      error: done.fail
-    });
-
-    const errorEvent: ErrorEvent = new ErrorEvent('404');
-    httpTestingController.expectOne('api/products?query=a').error(errorEvent);
-  });
 });

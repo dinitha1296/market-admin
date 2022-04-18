@@ -5,6 +5,8 @@ import { ProductService } from '../core/services/product.service';
 
 import { ProductComponent } from './product.component';
 
+import { Page } from '../core/utilities/page';
+
 describe('ProductComponent', () => {
   let component: ProductComponent;
   let fixture: ComponentFixture<ProductComponent>;
@@ -30,31 +32,41 @@ describe('ProductComponent', () => {
     expect(productService.productList).toBeUndefined();
   });
   
-  it('should have called #productService.getProductsByQuery() after initiation', () => {
-    spyOn(productService, "getProductsByQuery").and.callFake(()=> of([]));  
+  it('should have called #productService.getProducts() after initiation', () => {
+    spyOn(productService, "getProducts").and.callFake(()=> of(new PageMockImpl<Product>()));  
     fixture.detectChanges();  // Initiallisation. Will call ngOnInit
-    expect(productService.getProductsByQuery).toHaveBeenCalled();
+    expect(productService.getProducts).toHaveBeenCalled();
   });
 
-  it('should call #productService.getProductsByQuery() on #onSearchBtnClick()', () => {
+  it('should call #productService.getProducts() on #onSearchBtnClick()', () => {
     
     // To call ngOnInit before attaching spy since it also calls #getProductByQuery
     fixture.detectChanges();
     
     // Attaching spy after ng onInit so verification will only
-    // return true if #onSearchBtnClick() calls #productService.getProductsByQuery()
+    // return true if #onSearchBtnClick() calls #productService.getProducts()
     // and won't detect the service call made by ngOnInit()
-    spyOn(productService, "getProductsByQuery").and.callFake(()=> of([]));
+    spyOn(productService, "getProducts").and.callFake(()=> of(new PageMockImpl<Product>()));
     component.onSearchBtnClick();
     fixture.detectChanges();
-    expect(productService.getProductsByQuery).toHaveBeenCalled();
+    expect(productService.getProducts).toHaveBeenCalled();
   });
 });
  
 class ProductServiceStub {
 
-  getProductsByQuery(query: string): Observable<Product[]> {
-    return of(testProducts);
+  getProducts(query: string): Observable<Page<Product>> {
+    const page: Page<Product> = new PageMockImpl<Product>();
+    page.content = testProducts;
+    page.totalElements = testProducts.length;
+    page.totalPages = 1;
+    page.first = true;
+    page.last = true;
+    page.size = testProducts.length;
+    page.number = 0;
+    page.numberOfElements = testProducts.length;
+    page.empty = false;
+    return of(page);
   }
 }
 
@@ -86,3 +98,15 @@ const testProducts: Product[] = [
     productUnit: ""
   }
 ];
+
+class PageMockImpl<T> implements Page<T> {
+  content: T[] = [];
+  totalElements: number = 0;
+  totalPages: number = 0;
+  first: boolean = false;
+  last: boolean = true;
+  size: number = 0;
+  number: number = 0;
+  numberOfElements: number = 0;
+  empty: boolean = true;
+}

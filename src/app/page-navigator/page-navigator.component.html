@@ -1,0 +1,52 @@
+<nav aria-label="Page navigation example" class="mt-4">
+    <!-- <p>{{totalPages}}</p>
+    <p>{{currentPage}}</p> -->
+    
+    <ul *ngIf="totalPages <= 7" class="pagination justify-content-center">
+      <li [class]="getListClasses(1)"><button class="page-link" (click)="toPreviousPage()">Previous</button ></li>
+      <li *ngIf="totalPages >= 1" [class]="getListClasses(1)"><button [class]="getBtnClasses(1)" (click)="onPageChange(1)">1</button ></li>
+      <li *ngIf="totalPages >= 2" [class]="getListClasses(2)"><button [class]="getBtnClasses(2)" (click)="onPageChange(2)">2</button ></li>
+      <li *ngIf="totalPages >= 3" [class]="getListClasses(3)"><button [class]="getBtnClasses(3)" (click)="onPageChange(3)">3</button ></li>
+      <li *ngIf="totalPages >= 4" [class]="getListClasses(4)"><button [class]="getBtnClasses(4)" (click)="onPageChange(4)">4</button ></li>
+      <li *ngIf="totalPages >= 5" [class]="getListClasses(5)"><button [class]="getBtnClasses(5)" (click)="onPageChange(5)">5</button ></li>
+      <li *ngIf="totalPages >= 6" [class]="getListClasses(6)"><button [class]="getBtnClasses(6)" (click)="onPageChange(6)">6</button ></li>
+      <li *ngIf="totalPages >= 7" [class]="getListClasses(7)"><button [class]="getBtnClasses(7)" (click)="onPageChange(7)">7</button ></li>
+      <li [class]="getListClasses(totalPages)"><button class="page-link" (click)="toNextPage()">Next</button ></li>
+    </ul>
+    
+    <ul *ngIf="totalPages > 7 && currentPage > 3 && currentPage <= totalPages - 3" class="pagination justify-content-center">
+      <li class="page-item"><button class="page-link" (click)="toPreviousPage()">Previous</button ></li>
+      <li class="page-item"><button class="page-link" (click)="onPageChange(1)">1</button ></li>
+      <li class="page-item disabled"><button class="page-link">.</button ></li>
+      <li class="page-item"><button class="page-link" (click)="onPageChange(currentPage - 1)">{{currentPage - 1}}</button ></li>
+      <li class="page-item disabled"><button class="page-link bg-secondary text-light" disabled=true>{{currentPage}}</button ></li>
+      <li class="page-item"><button class="page-link" (click)="onPageChange(currentPage + 1)">{{currentPage + 1}}</button ></li>
+      <li class="page-item disabled"><button class="page-link">.</button ></li>
+      <li class="page-item"><button class="page-link" (click)="onPageChange(totalPages)">{{totalPages}}</button ></li>
+      <li class="page-item"><button class="page-link" (click)="toNextPage()">Next</button ></li>
+    </ul>
+    
+    <ul *ngIf="totalPages > 7 && currentPage <= 3" class="pagination justify-content-center">
+      <li [class]="getListClasses(1)"><button class="page-link" (click)="toPreviousPage()">Previous</button ></li>
+      <li [class]="getListClasses(1)"><button [class]="getBtnClasses(1)" (click)="onPageChange(1)">1</button ></li>
+      <li [class]="getListClasses(2)"><button [class]="getBtnClasses(2)" (click)="onPageChange(2)">2</button ></li>
+      <li [class]="getListClasses(3)"><button [class]="getBtnClasses(3)" (click)="onPageChange(3)">3</button ></li>
+      <li class="page-item"><button class="page-link" (click)="onPageChange(4)">4</button ></li>
+      <li class="page-item disabled"><button class="page-link">.</button ></li>
+      <li class="page-item disabled"><button class="page-link">.</button ></li>
+      <li class="page-item"><button class="page-link" (click)="onPageChange(totalPages)">{{totalPages}}</button ></li>
+      <li class="page-item"><button class="page-link" (click)="toNextPage()">Next</button ></li>
+    </ul>
+    
+    <ul *ngIf="totalPages > 7 && currentPage > totalPages - 3" class="pagination justify-content-center">
+      <li class="page-item"><button class="page-link" (click)="toPreviousPage()">Previous</button ></li>
+      <li class="page-item"><button class="page-link" (click)="onPageChange(1)">1</button ></li>
+      <li class="page-item"><button class="page-link">.</button ></li>
+      <li class="page-item"><button class="page-link">.</button ></li>
+      <li class="page-item"><button class="page-link" (click)="onPageChange(totalPages - 3)">{{totalPages - 3}}</button ></li>
+      <li [class]="getListClasses(totalPages - 2)"><button [class]="getBtnClasses(totalPages - 2)" (click)="onPageChange(totalPages - 2)">{{totalPages - 2}}</button ></li>
+      <li [class]="getListClasses(totalPages - 1)"><button [class]="getBtnClasses(totalPages - 1)" (click)="onPageChange(totalPages - 1)">{{totalPages - 1}}</button ></li>
+      <li [class]="getListClasses(totalPages)"><button [class]="getBtnClasses(totalPages)" (click)="onPageChange(totalPages)">{{totalPages}}</button ></li>
+      <li [class]="getListClasses(totalPages)"><button class="page-link" (click)="toNextPage()">Next</button ></li>
+    </ul>
+</nav>

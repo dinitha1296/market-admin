@@ -6,6 +6,8 @@ import { catchError } from 'rxjs/operators'
 
 import { Product } from '../models/product.model';
 
+import { Page } from '../utilities/page';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,20 +21,28 @@ export class ProductService {
 
   constructor(private http: HttpClient) {
   }
-
+  
   /** 
-   * GET all products 
+   * GET all products
+   * 
+   * @param query - search query
+   * @param pageNumber - page number of the page being requested
+   * @param pageSize - number of results per page
    */
-  getProducts(): Observable<Product[]> { 
-    return this.http.get<Product[]>(
-        this.baseURL,
-        {
-          observe: 'body',
-          responseType: 'json'
-        }
-      ).pipe(
-        catchError(this.handleError<Product[]>('getProducts', []))
-      );
+  getProducts(query?: string, pageNumber?: number, pageSize?: number): Observable<Page<Product>> {
+
+    const params: any = {};
+
+    if (query) params.query = query;
+    if (pageNumber) params["page-number"] = pageNumber;
+    if (pageSize) params["page-size"] = pageSize
+
+    return this.http.get<Page<Product>>(
+      this.baseURL,
+      { params }
+    ).pipe(
+      catchError(this.handleError<Page<Product>>('getProductsByQuery', undefined))
+    );
   }
 
   /**
@@ -46,22 +56,6 @@ export class ProductService {
       ).pipe(
         catchError(this.handleError<Product>('getProduct', undefined))
       );
-  }
-
-  /** 
-   * GET products by search query
-   * 
-   * @param query - search query
-   */
-  getProductsByQuery(query: string): Observable<Product[]> {
-    return this.http.get<Product[]>(
-      this.baseURL,
-      {
-        params: {query}
-      }
-    ).pipe(
-      catchError(this.handleError<Product[]>('getProductsByQuery', undefined))
-    );
   }
 
   private handleError<T>(operation: String, result?: T) {
