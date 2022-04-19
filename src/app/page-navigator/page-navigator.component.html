@@ -41,8 +41,8 @@
     <ul *ngIf="totalPages > 7 && currentPage > totalPages - 3" class="pagination justify-content-center">
       <li class="page-item"><button class="page-link" (click)="toPreviousPage()">Previous</button ></li>
       <li class="page-item"><button class="page-link" (click)="onPageChange(1)">1</button ></li>
-      <li class="page-item"><button class="page-link">.</button ></li>
-      <li class="page-item"><button class="page-link">.</button ></li>
+      <li class="page-item disabled"><button class="page-link">.</button ></li>
+      <li class="page-item disabled"><button class="page-link">.</button ></li>
       <li class="page-item"><button class="page-link" (click)="onPageChange(totalPages - 3)">{{totalPages - 3}}</button ></li>
       <li [class]="getListClasses(totalPages - 2)"><button [class]="getBtnClasses(totalPages - 2)" (click)="onPageChange(totalPages - 2)">{{totalPages - 2}}</button ></li>
       <li [class]="getListClasses(totalPages - 1)"><button [class]="getBtnClasses(totalPages - 1)" (click)="onPageChange(totalPages - 1)">{{totalPages - 1}}</button ></li>
