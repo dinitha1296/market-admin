@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators'
 
 import { Product } from '../models/product.model';
 
-import { Page } from '../utilities/page';
+import { Page } from '../models/page.model';
 
 @Injectable({
   providedIn: 'root'

@@ -5,11 +5,11 @@ import { Product } from '../core/models/product.model';
 import { ProductService } from '../core/services/product.service';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.sass']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.sass']
 })
-export class ProductComponent implements OnInit {
+export class ProductsComponent implements OnInit {
 
   searchQuery: string = "";
 

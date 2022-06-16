@@ -1,0 +1,7 @@
+<div class="card shadow-sm h-100">
+    <img class="img-fluid w-100" [src]="product.productImageURL" [alt]="product.productName" (error)="this.handleMissingImage($event)">
+    <div class="card-body">
+        <p class="font-weight-bold">{{product.productUnitPrice | currency}}</p>
+        <p class="card-text sm-90">{{product.productName}}</p>
+    </div>
+</div>

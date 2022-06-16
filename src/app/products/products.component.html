@@ -1,0 +1,17 @@
+<div class="m-2 overflow-auto" [ngStyle]='{"height": "calc(100% - 4.2rem)"}'>
+    <div class="m-3 d-flex justify-content-center">
+        <input id="search-bar" type="text" class="form-control w-50" [(ngModel)]="searchQuery">
+        <button id="search-btn" (click)="onSearchBtnClick()" class="btn"><i class="bi bi-search"></i></button>
+    </div>
+    <div class="m-3">
+        <div class="products-section">
+            <app-product-item *ngFor="let product of products" [product]="product" class="col" [ngStyle]="{'padding-botttom': '15px'}"></app-product-item>
+        </div>
+    </div>
+    <app-page-navigator
+        *ngIf="totalPages > 0"
+        [totalPages]="totalPages" 
+        [currentPage]="pageNumber + 1" 
+        (currentPageChange)="onPageNumberClick($event)">
+    </app-page-navigator>
+</div>

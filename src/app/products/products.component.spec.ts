@@ -2,24 +2,23 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Observable, of } from 'rxjs';
 import { Product } from '../core/models/product.model';
 import { ProductService } from '../core/services/product.service';
+import { Page } from '../core/models/page.model';
 
-import { ProductComponent } from './product.component';
+import { ProductsComponent } from './products.component';
 
-import { Page } from '../core/utilities/page';
-
-describe('ProductComponent', () => {
-  let component: ProductComponent;
-  let fixture: ComponentFixture<ProductComponent>;
+describe('ProductsComponent', () => {
+  let component: ProductsComponent;
+  let fixture: ComponentFixture<ProductsComponent>;
   let productService: ProductService;
   
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductComponent ],
+      declarations: [ ProductsComponent ],
       providers: [
         { provide: ProductService, useClass: ProductServiceStub }
       ],
     }).compileComponents();
-    fixture = TestBed.createComponent(ProductComponent);
+    fixture = TestBed.createComponent(ProductsComponent);
     component = fixture.componentInstance;
     productService = fixture.debugElement.injector.get(ProductService);
   });
@@ -52,7 +51,7 @@ describe('ProductComponent', () => {
     expect(productService.getProducts).toHaveBeenCalled();
   });
 });
- 
+
 class ProductServiceStub {
 
   getProducts(query: string): Observable<Page<Product>> {

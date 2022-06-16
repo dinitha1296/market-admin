@@ -9,8 +9,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProductComponent } from './product/product.component';
 import { PageNavigatorComponent } from './page-navigator/page-navigator.component';
+import { ProductsComponent } from './products/products.component';
+import { CurrencyPipe } from './pipes/currency/currency.pipe';
+import { ProductItemComponent } from './product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,10 @@ import { PageNavigatorComponent } from './page-navigator/page-navigator.componen
     TopNavigationComponent,
     SideNavigationComponent,
     DashboardComponent,
-    ProductComponent,
-    PageNavigatorComponent
+    PageNavigatorComponent,
+    ProductsComponent,
+    CurrencyPipe,
+    ProductItemComponent,
   ],
   imports: [
     BrowserModule,
