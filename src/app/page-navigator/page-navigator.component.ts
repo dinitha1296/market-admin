@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-page-navigator',
   templateUrl: './page-navigator.component.html',
-  styleUrls: ['./page-navigator.component.sass']
+  styleUrls: ['./page-navigator.component.scss']
 })
 export class PageNavigatorComponent implements OnInit {
 

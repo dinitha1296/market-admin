@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, UrlSegment, NavigationEnd } from '@angular/rout
 @Component({
   selector: 'app-side-navigation',
   templateUrl: './side-navigation.component.html',
-  styleUrls: ['./side-navigation.component.sass']
+  styleUrls: ['./side-navigation.component.scss']
 })
 export class SideNavigationComponent implements OnInit {
 
