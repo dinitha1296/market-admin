@@ -13,6 +13,7 @@ import { PageNavigatorComponent } from './page-navigator/page-navigator.componen
 import { ProductsComponent } from './products/products.component';
 import { CurrencyPipe } from './pipes/currency/currency.pipe';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
     ProductsComponent,
     CurrencyPipe,
     ProductItemComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,

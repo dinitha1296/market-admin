@@ -1,0 +1,13 @@
+<div 
+    class="search-bar"
+    [ngClass]="{'search-bar-focused': inputInFocus}">
+    <input 
+        type="text" 
+        placeholder="Search products" 
+        [(ngModel)]="searchQuery" 
+        (keyup.enter)="onSearch()"
+        (focus)="onFocusChange(true)"
+        (blur)="onFocusChange(false)">
+    <button *ngIf="searchIsNotEmpty()" class="bi bi-x" (click)="clearSearch()"></button>
+    <button type="submit" class="bi bi-search" (click)="onSearch()"></button>
+</div>

@@ -1,12 +1,16 @@
 <div class="m-2 overflow-auto" [ngStyle]='{"height": "calc(100% - 4.2rem)"}'>
-    <div class="m-3 d-flex justify-content-center">
+    <!-- <div class="m-3 d-flex justify-content-center">
         <input id="search-bar" type="text" class="form-control w-50" [(ngModel)]="searchQuery">
         <button id="search-btn" (click)="onSearchBtnClick()" class="btn"><i class="bi bi-search"></i></button>
+    </div> -->
+    <div class="products-toolbar">
+        <app-search-bar class="m-3"></app-search-bar>
     </div>
-    <div class="m-3">
-        <div class="products-section">
-            <app-product-item *ngFor="let product of products" [product]="product" class="col" [ngStyle]="{'padding-botttom': '15px'}"></app-product-item>
-        </div>
+    <div class="products-container" *ngIf="totalPages > 0">
+        <app-product-item *ngFor="let product of products" [product]="product" class="col" [ngStyle]="{'padding-botttom': '15px'}"></app-product-item>
+    </div>
+    <div class="products-not-found" *ngIf="totalPages === 0">
+        <h5>No products found<span> that matches term "{{searchQuery}}"</span></h5>
     </div>
     <app-page-navigator
         *ngIf="totalPages > 0"

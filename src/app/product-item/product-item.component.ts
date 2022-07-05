@@ -20,4 +20,8 @@ export class ProductItemComponent implements OnInit {
   handleMissingImage(event: Event) {
     (event.target as HTMLImageElement).src = this.defaultImageURL;
   }
+
+  productUnitExists(): boolean {
+    return !this.product.productUnit || this.product.productUnit !== "null";
+  }
 }

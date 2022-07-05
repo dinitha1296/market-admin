@@ -1,7 +1,10 @@
-<div class="card shadow-sm h-100">
+<div class="product-item shadow-sm">
     <img class="img-fluid w-100" [src]="product.productImageURL" [alt]="product.productName" (error)="this.handleMissingImage($event)">
-    <div class="card-body">
-        <p class="font-weight-bold">{{product.productUnitPrice | currency}}</p>
-        <p class="card-text sm-90">{{product.productName}}</p>
+    <div class="product-item-details">
+        <p>
+            <span class="product-item-price">{{product.productUnitPrice | currency}}</span>
+            <span class="product-item-unit" *ngIf="productUnitExists()"> per {{product.productUnit.valueOf() | lowercase}}</span>
+        </p>
+        <p class="product-item-name">{{product.productName}}</p>
     </div>
 </div>
