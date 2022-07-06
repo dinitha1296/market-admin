@@ -1,0 +1,26 @@
+$sidenav-section-padding: 0.7rem;
+$sidenav-section-width: 15rem;
+$sidenav-section-selected-background-color: #009688;;
+
+.sidenav-container {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.sidenav-section {
+  display: flex !important;
+  align-content: center;
+  align-items: center;
+  padding-top: $sidenav-section-padding;
+  padding-bottom: $sidenav-section-padding;
+  font-size: 1rem;
+}
+
+.sidenav-width {
+  width: $sidenav-section-width;
+}
+
+.sidenav-section-selected {
+  background-color: $sidenav-section-selected-background-color !important;
+  color: white;
+}

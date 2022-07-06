@@ -1,0 +1,12 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" [opened]="sidenavOpened">
+    <mat-nav-list [ngStyle]="{'padding': 0}" class="sidenav-width" *ngFor="let route of routes">
+      <a mat-list-item [routerLink]="route.path" routerLinkActive="sidenav-section-selected" class="sidenav-section">
+        <span>{{route.name}}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

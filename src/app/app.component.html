@@ -1,6 +1,4 @@
-<app-top-navigation [(isMenuSelected)]="isMenuSelected"></app-top-navigation>
-<hr class="m-0">
-<div [style]="{'display': 'flex', 'height': 'calc(100% - 1rem)'}">
-  <app-side-navigation [isMenuSelected]="isMenuSelected"></app-side-navigation>
-  <router-outlet [style]="{'display': 'none'}"></router-outlet>
-</div>
+<app-top-navigation class="top-navigation" (menuToggleChange)="toggleSidenav()"></app-top-navigation>
+<app-side-navigation class="main-content" [sidenavOpened]="isMenuSelected">
+  <router-outlet [ngStyle]="{'height': 0}"></router-outlet>
+</app-side-navigation>

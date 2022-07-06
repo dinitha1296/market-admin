@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+	<button mat-icon-button (click)="toggleSideMenu()">
+		<mat-icon>menu</mat-icon>
+	</button>
+	<span class="spacer"></span>
+	<mat-nav-list [ngStyle]="{'padding': 0}">
+		<a routerLink="/">Market Admin</a>
+	</mat-nav-list>
+	<span class="spacer"></span>
+	<button mat-icon-button>
+		<mat-icon>notifications</mat-icon>
+	</button>
+	<button mat-icon-button>
+		<mat-icon>logout</mat-icon>
+	</button>
+	<button mat-icon-button>
+		<mat-icon>settings</mat-icon>
+	</button>
+</mat-toolbar>

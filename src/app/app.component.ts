@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string = 'Market Admin';
   isMenuSelected: boolean = false;
+
+  toggleSidenav(): void {
+    this.isMenuSelected = !this.isMenuSelected;
+  }
 }
