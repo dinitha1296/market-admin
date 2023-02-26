@@ -1,0 +1,73 @@
+<div class="product-viewer">
+  <div id="product-viewer-scroll-div" [ngStyle]="{'height': 0, 'width': 0}"></div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product name</div>
+    <div class="product-detail-value">{{(product | async)?.productName}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-editor-image-container">
+    <img [src]="(product | async)?.productImageURL" (error)="handleMissingImage($event)">
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product id</div>
+    <div class="product-detail-value">{{(product | async)?.productId}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product description</div>
+    <div class="product-detail-value">{{(product | async)?.productDescription}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product unit price</div>
+    <div class="product-detail-value">{{(product | async)?.productUnitPrice || 0 | rupee}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product unit</div>
+    <div class="product-detail-value">{{(product | async)?.productUnit || "None"}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product availablity</div>
+    <div class="product-detail-value">{{(product | async)?.productIsAvailable ? 'Available' : 'Not availabe'}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product min quantity</div>
+    <div class="product-detail-value">{{(product | async)?.productMinQuantity}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product max quantity</div>
+    <div class="product-detail-value">{{(product | async)?.productMaxQuantity}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product quantity increment</div>
+    <div class="product-detail-value">{{(product | async)?.productQuantityIncrement}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product popularity score</div>
+    <div class="product-detail-value">{{(product | async)?.productPopularityScore}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Product category</div>
+    <div class="product-detail-value">{{(product | async)?.category?.categoryName}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Sub department</div>
+    <div class="product-detail-value">{{(product | async)?.category?.subDepartment?.subDepartmentName}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="product-detail">
+    <div class="product-detail-label">Department</div>
+    <div class="product-detail-value">{{(product | async)?.category?.subDepartment?.department?.departmentName}}</div>
+  </div>
+  <mat-divider></mat-divider>
+</div>

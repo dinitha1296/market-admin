@@ -6,7 +6,7 @@
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content [ngStyle]="{'overflow': 'hidden'}">
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

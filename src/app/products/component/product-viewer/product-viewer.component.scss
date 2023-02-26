@@ -1,0 +1,35 @@
+$product-viewer-max-width: 50rem;
+
+.product-viewer {
+  max-width: $product-viewer-max-width;
+  padding: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-detail {
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.product-detail-label {
+  width: 40%;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.product-detail-value {
+  width: 60%;
+  word-wrap: break-word;
+}
+
+.product-editor-image-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

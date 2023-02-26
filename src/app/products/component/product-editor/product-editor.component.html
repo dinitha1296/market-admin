@@ -1,0 +1,132 @@
+<form class="product-editor" [formGroup]="productFormGroup" (keydown.enter)="$event.preventDefault()">
+  <div id="product-editor-scroll-position" [ngStyle]="{'height': 0, 'width': 0}"></div>
+  <mat-form-field >
+    <mat-label>Product id</mat-label>
+    <input type="text" matInput formControlName="productId">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Product name</mat-label>
+    <input type="text" matInput formControlName="productName">
+    <mat-error>
+      <ng-container *ngFor="let error of validationMessages.productName">
+        <ng-container *ngIf="hasErrors('productName', error.type)">{{error.message}}</ng-container>
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Product description</mat-label>
+    <textarea type="text" matInput formControlName="productDescription"></textarea>
+    <mat-error>
+      <ng-container *ngFor="let error of validationMessages.productDescription">
+        <ng-container *ngIf="hasErrors('productDescription', error.type)">{{error.message}}</ng-container>
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+  <div class="product-editor-inline">
+    <mat-form-field class="product-editor-inline-left">
+      <mat-label>Product unit price</mat-label>
+      <input type="number" matInput appAllowNumbers [allowDecimals]="true" formControlName="productUnitPrice">
+      <mat-error>
+        <ng-container *ngFor="let error of validationMessages.productUnitPrice">
+          <ng-container *ngIf="hasErrors('productUnitPrice', error.type)">{{error.message}}</ng-container>
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="product-editor-inline-right">
+      <mat-label>Product unit</mat-label>
+      <mat-select formControlName="productUnit">
+        <mat-option value="">None</mat-option>
+        <mat-option value="KG">Kilograms</mat-option>
+      </mat-select>
+      <mat-error>
+        <ng-container *ngFor="let error of validationMessages.productUnit">
+          <ng-container *ngIf="hasErrors('productUnit', error.type)">{{error.message}}</ng-container>
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div [ngStyle]="{'display': 'flex', 'flex-direction': 'column'}">
+    <mat-label [ngStyle]="{'display': 'flex', 'flex-direction': 'column', 'margin-bottom': '1rem'}">Product availablity</mat-label>
+    <mat-radio-group [ngStyle]="{'display': 'flex', 'flex-direction': 'column', 'margin-left': '1rem'}" formControlName="productIsAvailable">
+      <mat-radio-button [value]="true">Available</mat-radio-button>
+      <mat-radio-button [value]="false">Not available</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="product-editor-image-container">
+    <div>
+      <img [src]="(product | async)?.productImageURL || ''" [alt]="(product | async)?.productName || ''" (error)="handleMissingImage($event)">
+    </div>
+  </div>
+  <div class="product-editor-inline">
+    <mat-form-field class="product-editor-inline-left">
+      <mat-label>Product minimum quantity</mat-label>
+      <input type="number" matInput appAllowNumbers [allowDecimals]="true" formControlName="productMinQuantity">
+      <mat-error>
+        <ng-container *ngFor="let error of validationMessages.productMinQuantity">
+          <ng-container *ngIf="hasErrors('productMinQuantity', error.type)">{{error.message}}</ng-container>
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="product-editor-inline-right">
+      <mat-label>Product maximum quantity</mat-label>
+      <input type="number" matInput appAllowNumbers [allowDecimals]="true" formControlName="productMaxQuantity">
+      <mat-error>
+        <ng-container *ngFor="let error of validationMessages.productMaxQuantity">
+          <ng-container *ngIf="hasErrors('productMaxQuantity', error.type)">{{error.message}}</ng-container>
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="product-editor-inline">
+    <mat-form-field class="product-editor-inline-left">
+      <mat-label>Product quantity increment</mat-label>
+      <input type="number" matInput appAllowNumbers [allowDecimals]="true" formControlName="productQuantityIncrement">
+      <mat-error>
+        <ng-container *ngFor="let error of validationMessages.productQuantityIncrement">
+          <ng-container *ngIf="hasErrors('productQuantityIncrement', error.type)">{{error.message}}</ng-container>
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="product-editor-inline-right">
+      <mat-label>Product popularity score</mat-label>
+      <input type="number" matInput appAllowNumbers [allowDecimals]="true" formControlName="productPopularityScore">
+      <mat-error>
+        <ng-container *ngFor="let error of validationMessages.productPopularityScore">
+          <ng-container *ngIf="hasErrors('productPopularityScore', error.type)">{{error.message}}</ng-container>
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <mat-form-field >
+    <mat-label>Product category</mat-label>
+    <mat-select matNativeControl formControlName="category">
+      <mat-option [disabled]="true" class="category-select-search-bar-outer">
+        <mat-option [disabled]="true" class="category-select-search-bar">
+          <div>
+            <input matInput type="text" placeholder="Search category" [formControl]="productCategoryFilterControl">
+          </div>
+        </mat-option>
+        <mat-divider></mat-divider>
+      </mat-option>
+      <mat-option></mat-option>
+      <mat-option *ngIf="(filteredCategories | async | keyvalue)?.length === 0" [disabled]="true">No matching categories found</mat-option>
+      <mat-optgroup *ngFor="let department of filteredCategories | async | keyvalue">
+        <p [ngStyle]="{'color': '#009688', 'font-size': '1.4rem', 'font-weight': 'bold'}">{{department.key}}</p>
+        <ng-container *ngFor="let subDepartment of department.value | keyvalue">
+          <mat-optgroup [label]="subDepartment.key">
+            <mat-option [value]="category.categoryId" *ngFor="let category of subDepartment.value">{{category.categoryName}}</mat-option>
+          </mat-optgroup>
+        </ng-container>
+      </mat-optgroup>
+    </mat-select>
+    <mat-error>
+      <ng-container *ngFor="let error of validationMessages.category">
+        <ng-container *ngIf="hasErrors('category', error.type)">{{error.message}}</ng-container>
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+  <div class="product-editor-action-buttons">
+    <button (click)="cancelProductForm()" mat-raised-button>Cancel</button>
+    <button [disabled]="productFormGroup.invalid" (click)="saveProductForm()" mat-raised-button color="primary">Save</button>
+  </div>
+</form>

@@ -1,14 +1,17 @@
+import { Category } from "./category.model";
+
 export interface Product {
 
     productId: number;
-    productName: String;
-    productDescription: String;
+    productName: string;
+    productDescription: string;
     productUnitPrice: number;
     productIsAvailable: boolean;
-    productImageURL: String;
-    productMinQuntity: number;
+    productImageURL: string;
+    productMinQuantity: number;
     productMaxQuantity: number;
     productQuantityIncrement: number;
     productPopularityScore: number;
-    productUnit: String;
+    productUnit: string;
+    category: Category;
 }

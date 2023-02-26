@@ -1,0 +1,6 @@
+<div *ngIf="products && products.length > 0" class="product-card-container">
+  <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+</div>
+<div *ngIf="!products || products.length === 0" class="no-results">
+  <h5>No matching products found.</h5>
+</div>

@@ -11,7 +11,6 @@
 
 body, app-root, router-outlet {
     display: block;
-    width: 100vw;
     height: 100vh;
     overflow: hidden;
     font-family: 'Ubuntu', sans-serif;
@@ -122,3 +121,25 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// #mat-select-2-panel {
+.mat-select-panel {
+    transform: none !important;
+    .category-select-search-bar {
+        background-color: white !important;
+        border-radius: 4px;
+    }
+}
+
+.dark-theme {
+    .mat-select-panel {
+        .category-select-search-bar {
+           background-color: #424242 !important;
+        }
+    }
+}
+
+.mat-optgroup-label {
+    font-family: 'Ubuntu', sans-serif;
+    font-style: bold;
+}

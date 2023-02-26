@@ -1,0 +1,7 @@
+<div class="product-details-container">
+  <app-product-editor *ngIf="isEditable" [productId]="productId" (cancelEvent)="cancelProductForm()"></app-product-editor>
+  <ng-container *ngIf="!isEditable">
+    <button class="product-edit-button" mat-fab (click)="isEditable = true"><mat-icon>edit</mat-icon></button>
+    <app-product-viewer [productId]="productId"></app-product-viewer>
+  </ng-container>
+</div>

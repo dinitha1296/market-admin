@@ -1,0 +1,5 @@
+<form (ngSubmit)="onSearch()" class="search-bar">
+  <input matInput [formControl]="searchControl" type="text" placeholder="Search products">
+  <div *ngIf="searchControl.value !== ''" class="search-bar-button" (click)="onClear()" mat-icon-button><mat-icon>close</mat-icon></div>
+  <div class="search-bar-button" (click)="onSearch()" mat-icon-button><mat-icon>search</mat-icon></div>
+</form>

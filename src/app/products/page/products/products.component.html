@@ -1,0 +1,22 @@
+<div class="products-component-container">
+  <div class="products-toolbar">
+    <button mat-icon-button><mat-icon>filter_list</mat-icon></button>
+    <!-- <form (ngSubmit)="submitSearch()">
+      <mat-form-field>
+        <input
+          class="search-bar"
+          type="text"
+          placeholder="Search"
+          matInput
+          [formControl]="searchControl">
+      </mat-form-field>
+    </form> -->
+    <app-search-bar
+      [searchControl]="searchControl"
+      (searchSubmit)="submitSearch()"
+      >
+    </app-search-bar>
+    <mat-paginator [pageIndex]="pageNumber" [length]="totalElements" [pageSize]="pageSize | async" (page)="changePage($event)" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+  </div>
+  <app-product-card-container [products]="products"></app-product-card-container>
+</div>

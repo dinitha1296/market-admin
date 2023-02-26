@@ -1,0 +1,10 @@
+<a [routerLink]="product.productId.toString()">
+  <mat-card>
+    <img mat-card-image [src]="product.productImageURL" (error)="handleMissingImage($event)">
+    <div class="product-card-price-container">
+      <span class="product-card-price">{{product.productUnitPrice | rupee}}</span>
+      <span class="product-card-unit">{{product.productUnit | unit}}</span>
+    </div>
+    <mat-card-content>{{product.productName}}</mat-card-content>
+  </mat-card>
+</a>

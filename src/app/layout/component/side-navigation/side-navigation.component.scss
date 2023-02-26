@@ -3,8 +3,8 @@ $sidenav-section-width: 15rem;
 $sidenav-section-selected-background-color: #009688;;
 
 .sidenav-container {
-  flex-grow: 1;
-  height: 100%;
+  height: calc(100% - 66px);
+  width: 100%;
 }
 
 .sidenav-section {

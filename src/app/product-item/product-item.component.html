@@ -3,7 +3,7 @@
     <div class="product-item-details">
         <p>
             <span class="product-item-price">{{product.productUnitPrice | currency}}</span>
-            <span class="product-item-unit" *ngIf="productUnitExists()"> per {{product.productUnit.valueOf() | lowercase}}</span>
+            <span class="product-item-unit" *ngIf="productUnitExists()"> per {{product.productUnit | lowercase}}</span>
         </p>
         <p class="product-item-name">{{product.productName}}</p>
     </div>

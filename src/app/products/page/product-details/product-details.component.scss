@@ -1,0 +1,15 @@
+$product-editor-action-buttons-gap: 0.5rem;
+$product-editor-max-width: 50rem;
+
+.product-details-container {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.product-edit-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}

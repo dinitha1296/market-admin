@@ -7,6 +7,7 @@
 		<a routerLink="/">Market Admin</a>
 	</mat-nav-list>
 	<span class="spacer"></span>
+	<mat-slide-toggle [checked]="darkTheme | async" (change)="toggleTheme()"></mat-slide-toggle>
 	<button mat-icon-button>
 		<mat-icon>notifications</mat-icon>
 	</button>

@@ -1,0 +1,30 @@
+.products-component-container {
+  height: calc(100% - 56px);
+}
+
+.product-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  overflow: auto;
+  * {
+    margin: 0.5rem;
+  }
+}
+
+.products-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // background-color: white;
+  border-bottom: 1px solid rgb(200, 200, 200);
+  * {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.search-bar {
+  width: 15rem;
+}

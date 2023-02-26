@@ -1,0 +1,24 @@
+$product-card-price-container-vertical-margin: 0.6rem;
+
+a:hover {
+  text-decoration: none;
+}
+
+mat-card {
+  width: 15rem;
+  height: 25rem;
+}
+
+mat-card-content {
+  font-size: 1rem;
+}
+
+.product-card-price-container {
+  margin-top: $product-card-price-container-vertical-margin;
+  margin-bottom: $product-card-price-container-vertical-margin;
+}
+
+.product-card-price {
+  font-size: 1.25rem;
+  margin-right: 0.3rem;
+}

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { TopNavigationComponent } from './component/top-navigation/top-navigation.component';
 import { SideNavigationComponent } from './component/side-navigation/side-navigation.component';
@@ -14,7 +15,7 @@ import { SideNavigationComponent } from './component/side-navigation/side-naviga
 @NgModule({
   declarations: [
     TopNavigationComponent,
-    SideNavigationComponent
+    SideNavigationComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +24,8 @@ import { SideNavigationComponent } from './component/side-navigation/side-naviga
     MatIconModule,
     MatToolbarModule,
     MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSlideToggleModule,
   ],
   exports: [
     TopNavigationComponent,
